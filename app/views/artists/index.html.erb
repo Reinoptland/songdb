@@ -1,0 +1,11 @@
+<h3><%= sortable "name"  %></h3>
+<h3><%= sortable "created_at", "Created"  %></h3>
+
+
+<% @artists.each do |artist| %>
+
+<h1>Name: <%= artist.name %></h1>
+<h2>Date of Birth: <%= artist.birth_date %></h2>
+<h2>Country of Origin: <%= artist.country_of_origin %></h2>
+
+<% end %>
