@@ -4,7 +4,8 @@
 
 <% @artists.each do |artist| %>
 
-<h1>Name: <%= artist.name %></h1>
+
+<h1><%= link_to artist.name, artist_path(artist) %></h1>
 <h2>Date of Birth: <%= artist.birth_date %></h2>
 <h2>Country of Origin: <%= artist.country_of_origin %></h2>
 
