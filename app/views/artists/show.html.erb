@@ -2,9 +2,6 @@
 <h2>Date of Birth: <%= @artist.birth_date %></h2>
 <h2>Country of Origin: <%= @artist.country_of_origin %></h2>
 
-<% @artist.songs.each do |song| %>
+<%= render 'songs/form' %>
 
-<h1><%= song.title %></h1>
-<h2><%= song.duration %></h2>
-
-<% end %>
+<%= render 'songs/index' %>

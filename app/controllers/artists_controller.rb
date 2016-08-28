@@ -8,6 +8,8 @@ class ArtistsController < ApplicationController
   end
   def show
     @artist = Artist.find(params[:id])
+    @songs = Song.includes(:artists).where('artists.id' => params[:id])
+    @song = Song.new
   end
 
   private
