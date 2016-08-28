@@ -45,4 +45,17 @@ describe 'Visitors can see a list of all the artists in the database' do
       expect(page.find('h1:nth-child(6)')).to have_content 'Method Man'
       expect(page.find('h1:nth-child(9)')).to have_content 'RZA'
     end
+
+    it 'links to artist\'s show pages' do
+
+      gza = Artist.create(name: "GZA", birth_date:"1966-08-22", country_of_origin: "United States",)
+      rza = Artist.create(name: "RZA", birth_date:"1969-07-05", country_of_origin: "United States",)
+
+      visit artists_url
+
+      click_on "GZA"
+
+      expect(page).to have_text(gza.name)
+      expect(page).not_to have_text(rza.name)
+    end
 end
