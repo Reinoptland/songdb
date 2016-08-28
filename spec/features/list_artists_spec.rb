@@ -16,5 +16,7 @@ describe 'Visitors can see a list of all the artists in the database' do
       expect(page).to have_text(rza.name)
       expect(page).to have_text(mm.name)
     end
-    
+
+    it 'has a link to order the artists by created_at' do
+    end
 end
