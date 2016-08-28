@@ -16,4 +16,5 @@ describe 'Visitors can see a list of all the artists in the database' do
       expect(page).to have_text(rza.name)
       expect(page).to have_text(mm.name)
     end
+    
 end
