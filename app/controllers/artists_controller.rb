@@ -6,6 +6,11 @@ class ArtistsController < ApplicationController
   def order_by_name
     @artists = Artist.order_by_name
   end
+  def show
+    @artist = Artist.find(params[:id])
+    @songs = Song.includes(:artists).where('artists.id' => params[:id])
+    @song = Song.new
+  end
 
   private
 
