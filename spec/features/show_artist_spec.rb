@@ -15,18 +15,33 @@ describe 'It shows the artist\'s details' do
   end
 
   it "shows the artist\'s songs" do
-    gza = Artist.create(id: 10, name: "GZA", birth_date:"1966-08-22", country_of_origin: "United States",)
+    gza = Artist.create(id: 1, name: "GZA", birth_date:"1966-08-22", country_of_origin: "United States",)
 
     Song.create([
     {title:"Clan in da Front", duration: 273, artists: [gza]},
     {title:"Bring da Ruckus", duration: 250, artists: [gza]},
     ])
 
-    visit "http://example.com/artists/10"
+    visit "http://example.com/artists/1"
 
     expect(page).to have_text(gza.songs.first.title)
     expect(page).to have_text(gza.songs.second.title)
     expect(page).to have_text(gza.songs.first.duration)
 
+  end
+
+  it "Has a form to add a new song to the artist" do
+    Artist.create(id: 1, name: "GZA", birth_date:"1966-08-22", country_of_origin: "United States",)
+
+    visit "http://example.com/artists/1"
+
+    fill_in 'song_title', with: '4th Chamber'
+    fill_in 'song_duration', with: 277
+    page.execute_script("$('form').submit()")
+
+    sleep(1)
+
+    expect(page).to have_content('4th Chamber')
+    
   end
 end
