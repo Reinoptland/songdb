@@ -36,5 +36,21 @@ describe 'Visitors can see a list of all the artists in the database' do
     end
 
     it 'has a link to order the artists by created_at' do
+
+      gza = Artist.create(name: "GZA", birth_date:"1966-08-22", country_of_origin: "United States", created_at: 3.weeks.ago)
+      rza = Artist.create(name: "RZA", birth_date:"1969-07-05", country_of_origin: "United States", created_at: 1.weeks.ago)
+      mm = Artist.create(name: "Method Man", birth_date:"1971-03-02", country_of_origin: "United States", created_at: 2.weeks.ago)
+
+      visit artists_url
+
+      expect(page.find('h1:nth-child(2)')).to have_content 'GZA'
+      expect(page.find('h1:nth-child(5)')).to have_content 'RZA'
+      expect(page.find('h1:nth-child(8)')).to have_content 'Method Man'
+
+      click_on("Order by most recent")
+
+      expect(page.find('h1:nth-child(2)')).to have_content 'RZA'
+      expect(page.find('h1:nth-child(5)')).to have_content 'Method Man'
+      expect(page.find('h1:nth-child(8)')).to have_content 'GZA'
     end
 end
