@@ -37,11 +37,11 @@ describe 'It shows the artist\'s details' do
 
     fill_in 'song_title', with: '4th Chamber'
     fill_in 'song_duration', with: 277
-    page.execute_script("$('form').submit()")
+    click_on 'Create Song'
 
     sleep(1)
 
     expect(page).to have_content('4th Chamber')
-    
+
   end
 end
