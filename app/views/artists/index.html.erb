@@ -1,5 +1,5 @@
-<h3><%= link_to "Order by artist name", :sort => "name"  %></h3>
-<h3><%= link_to "Order by most recent", :sort => "created_at"  %></h3>
+<h3><%= sortable "name"  %></h3>
+<h3><%= sortable "created_at", "Created"  %></h3>
 
 
 <% @artists.each do |artist| %>

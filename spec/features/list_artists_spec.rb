@@ -24,11 +24,7 @@ describe 'Visitors can see a list of all the artists in the database' do
 
       visit artists_url
 
-      expect(page.find('h1:nth-child(3)')).to have_content 'GZA'
-      expect(page.find('h1:nth-child(6)')).to have_content 'RZA'
-      expect(page.find('h1:nth-child(9)')).to have_content 'Method Man'
-
-      click_on("Order by artist name")
+      click_on("Name")
 
       expect(page.find('h1:nth-child(3)')).to have_content 'GZA'
       expect(page.find('h1:nth-child(6)')).to have_content 'Method Man'
@@ -43,14 +39,10 @@ describe 'Visitors can see a list of all the artists in the database' do
 
       visit artists_url
 
+      click_on("Created")
+
       expect(page.find('h1:nth-child(3)')).to have_content 'GZA'
-      expect(page.find('h1:nth-child(6)')).to have_content 'RZA'
-      expect(page.find('h1:nth-child(9)')).to have_content 'Method Man'
-
-      click_on("Order by most recent")
-
-      expect(page.find('h1:nth-child(3)')).to have_content 'RZA'
       expect(page.find('h1:nth-child(6)')).to have_content 'Method Man'
-      expect(page.find('h1:nth-child(9)')).to have_content 'GZA'
+      expect(page.find('h1:nth-child(9)')).to have_content 'RZA'
     end
 end
