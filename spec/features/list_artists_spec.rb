@@ -24,15 +24,15 @@ describe 'Visitors can see a list of all the artists in the database' do
 
       visit artists_url
 
-      expect(page.find('h1:nth-child(1)')).to have_content 'GZA'
-      expect(page.find('h1:nth-child(4)')).to have_content 'RZA'
-      expect(page.find('h1:nth-child(7)')).to have_content 'Method Man'
+      expect(page.find('h1:nth-child(2)')).to have_content 'GZA'
+      expect(page.find('h1:nth-child(5)')).to have_content 'RZA'
+      expect(page.find('h1:nth-child(8)')).to have_content 'Method Man'
 
-      click_link('order_by_created_at')
+      click_on("Order by artist name")
 
-      expect(page.find('h1:nth-child(1)')).to have_content 'GZA'
-      expect(page.find('h1:nth-child(4)')).to have_content 'Method Man'
-      expect(page.find('h1:nth-child(7)')).to have_content 'RZA'
+      expect(page.find('h1:nth-child(2)')).to have_content 'GZA'
+      expect(page.find('h1:nth-child(5)')).to have_content 'Method Man'
+      expect(page.find('h1:nth-child(8)')).to have_content 'RZA'
     end
 
     it 'has a link to order the artists by created_at' do
